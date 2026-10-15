@@ -1,10 +1,11 @@
 {
   "config": {
     "mode": "pages",
-    "version": "v3.6.38 \u00b7 \u00f6ffentlicher Metadatenexport 15.10.2026 \u00b7 Originalbilder nicht freigegeben",
+    "version": "v3.6.38 \u00b7 \u00f6ffentlicher Metadatenexport 15.10.2026 \u00b7 gepr\u00fcfte externe Originalbilder",
     "test_only": false,
     "public_approved": true,
-    "thumbnails": {}
+    "thumbnails": {},
+    "external_images": 18
   },
   "catalog_sha256": "eaa18eb1dd08412e06c7fda47f96f0241b178ea0656ce6733043e47a69b3324a",
   "files": {
@@ -13,8 +14,8 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "app.js": {
-      "size": 9498,
-      "sha256": "ae47ed591986b57b90ad34fa48b15a840b67f0e3260330df16bbe4e053e6eca6"
+      "size": 9513,
+      "sha256": "b986b1111d84534a1634f57d3af5a877e7fd0a1bb169aa1220b4461c1fda2e2d"
     },
     "browse.js": {
       "size": 9786,
@@ -44,13 +45,21 @@
       "size": 4841,
       "sha256": "bd72c78f1244fa7f7e3a6ae4f12bc8706409a8f08e8351263c4f74273bd2ad7d"
     },
+    "external-media-policy.js": {
+      "size": 14909,
+      "sha256": "8b09919cd92baa14c192682250f04b862974196e32a504b417ad81317cce3142"
+    },
+    "external-media.js": {
+      "size": 8294,
+      "sha256": "bcb7b47ddcecc8b02dbc319d35df48217c93e7bafc56b44cf43b646461c19d2e"
+    },
     "guard.js": {
       "size": 781,
       "sha256": "d528afbafece9f40c1954c8e919f9636a24395912c3a73924972d793fa9bc990"
     },
     "index.html": {
-      "size": 7192,
-      "sha256": "5e914ccdc5889717562cb993768bab34e99ff95f212f73f27da178b85a9d62c9"
+      "size": 7281,
+      "sha256": "8f2f2b4da158c919fd001146da9d2ebee28ad8c5421b8193f443da1c5d342b13"
     },
     "layout.js": {
       "size": 883,
@@ -61,8 +70,8 @@
       "sha256": "e3df6d2fb60e1e8991d251bfdf8c82f58b267af986e1c2cf88bd383fefdcd5ce"
     },
     "phase7.css": {
-      "size": 4075,
-      "sha256": "f909f5b78fa8b81a88400485f589e679f07b5db666e9d578551f8b42f8c2b6ff"
+      "size": 4726,
+      "sha256": "db44718dd1f351f0432e8b24b069e9622f7308cd9d7873d71ddc56a0cb117b5f"
     },
     "phase7.js": {
       "size": 8971,
@@ -81,8 +90,8 @@
       "sha256": "ccbc10456c2c1bc5f2616bc3756b3ff18aea4427af722039426518d6ee7f87f5"
     },
     "site-config.js": {
-      "size": 215,
-      "sha256": "bd618c996072a6c992256a670eadf71c1b44673694750e060d290c232f9fa100"
+      "size": 242,
+      "sha256": "081607d327cfff29921649e022c6c272214f58bb2b0326a772c8de4ab7309154"
     },
     "style.css": {
       "size": 15019,
