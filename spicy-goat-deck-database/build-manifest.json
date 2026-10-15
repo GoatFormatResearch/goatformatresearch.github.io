@@ -5,7 +5,7 @@
     "test_only": false,
     "public_approved": true,
     "thumbnails": {},
-    "external_images": 18
+    "external_images": 19
   },
   "catalog_sha256": "eaa18eb1dd08412e06c7fda47f96f0241b178ea0656ce6733043e47a69b3324a",
   "files": {
@@ -46,8 +46,8 @@
       "sha256": "bd72c78f1244fa7f7e3a6ae4f12bc8706409a8f08e8351263c4f74273bd2ad7d"
     },
     "external-media-policy.js": {
-      "size": 14909,
-      "sha256": "8b09919cd92baa14c192682250f04b862974196e32a504b417ad81317cce3142"
+      "size": 15729,
+      "sha256": "4643f4a99bbc59a53f912971b08527052e5b95692719b885e6f8c67a458ed814"
     },
     "external-media.js": {
       "size": 8679,
@@ -91,7 +91,7 @@
     },
     "site-config.js": {
       "size": 242,
-      "sha256": "081607d327cfff29921649e022c6c272214f58bb2b0326a772c8de4ab7309154"
+      "sha256": "94a0bb9aca2395c1ebe65a7c9e2741c94b3c043ae8637733b34df8b4bebf5f06"
     },
     "style.css": {
       "size": 15019,

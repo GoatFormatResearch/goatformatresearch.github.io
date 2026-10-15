@@ -1,1 +1,1 @@
-window.GOAT_SITE = {"mode": "pages", "version": "v3.6.38 \u00b7 \u00f6ffentlicher Metadatenexport 15.10.2026 \u00b7 gepr\u00fcfte externe Originalbilder", "test_only": false, "public_approved": true, "thumbnails": {}, "external_images": 18};
+window.GOAT_SITE = {"mode": "pages", "version": "v3.6.38 \u00b7 \u00f6ffentlicher Metadatenexport 15.10.2026 \u00b7 gepr\u00fcfte externe Originalbilder", "test_only": false, "public_approved": true, "thumbnails": {}, "external_images": 19};
