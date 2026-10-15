@@ -73,12 +73,16 @@
     const dialog=document.querySelector('#deck'), hero=document.querySelector('#content .hero > div');
     if(dialog?.open && hero && !hero.dataset.externalMedia) {
       hero.dataset.externalMedia='checked';
+      // Historical metadata remains unchanged; describe the current public mode.
+      for(const note of hero.querySelectorAll('.note')) {
+        note.textContent='Keine lokale Bildkopie. Geprüfte externe Originalbilder werden automatisch angezeigt; weitere Quellenlinks stehen im Deckprofil.';
+      }
       const images=document.createDocumentFragment();
       for(const row of byId.get(document.querySelector('#deck-id')?.textContent)||[]) images.append(figure(row,true));
       hero.prepend(images);
     }
   }
-  const stats=document.querySelector('#stats');if(stats)stats.textContent=stats.textContent.replace(/\d+ referenzierte Bilder/,`${records.length} externe Bildquellen (keine lokalen Bildkopien)`);
+  const stats=document.querySelector('#stats');if(stats)stats.textContent=stats.textContent.replace(/\d+ referenzierte Bilder/,`${records.length} externe Bildquellen (keine lokalen Bildkopien)`).replace('Originalbilder nicht freigegeben','geprüfte externe Originalbilder');
   const metric=document.querySelectorAll('.phase7-highlights article')[2];if(metric){metric.textContent='';const n=document.createElement('strong');n.textContent=byId.size;metric.append(n,document.createTextNode('Mit externer Bildquelle'));}
   const imageFilter=document.querySelector('#image');if(imageFilter?.parentElement?.firstChild?.nodeType===3)imageFilter.parentElement.firstChild.textContent='Bildkopie im Paket';
   const note=document.createElement('details');note.className='wrap';note.id='external-media-privacy';
