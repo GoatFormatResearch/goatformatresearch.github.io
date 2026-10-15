@@ -19,6 +19,20 @@
     } catch { return false; }
   };
   const records = policy.images.filter(valid);
+  // A source-only record is navigation, never an image-fetch permission.
+  const sourceLinks = (Array.isArray(window.GOAT_SOURCE_LINKS)?window.GOAT_SOURCE_LINKS:[]).filter(r =>
+    r && r.build_id==='BLD-135' && catalogIds.has(r.build_id) && r.status==='SOURCE_ONLY_NOT_APPROVED_FOR_EMBEDDING' &&
+    r.source_url==='https://www.goatformat.at/2026/10/02/ggp-amstetten-oesterreichs-erster-goat-grand-prix/' &&
+    r.image_url==='https://www.goatformat.at/wp-content/uploads/2026/10/GOAT-GRAND-PRIX-AMSTETTEN-2026-3rd-Place-Peter-Gross-2048x2048.png' &&
+    ['source_label','image_label'].every(k=>typeof r[k]==='string' && r[k].length>0 && r[k].length<=150));
+  function sourceOnly(r) {
+    const box=document.createElement('aside');box.className='external-source-only note';
+    const text=document.createElement('p');text.textContent='Zusätzlicher Primärbeleg gefunden. Das Bild wird hier nicht eingebettet: Der Anbieter unterstützt den geprüften Abruf ohne Anbieter-Cookies mit Inhaltsprüfung derzeit nicht.';box.append(text);
+    for(const [urlKey,labelKey] of [['source_url','source_label'],['image_url','image_label']]) {
+      const p=document.createElement('p'),a=document.createElement('a');a.href=r[urlKey];a.textContent=r[labelKey];a.target='_blank';a.rel='noopener noreferrer';p.append(a);box.append(p);
+    }
+    return box;
+  }
   const byId = new Map();
   for (const r of records) { if (!byId.has(r.build_id)) byId.set(r.build_id,[]); byId.get(r.build_id).push(r); }
   async function load(r) {
@@ -79,6 +93,7 @@
       }
       const images=document.createDocumentFragment();
       for(const row of byId.get(document.querySelector('#deck-id')?.textContent)||[]) images.append(figure(row,true));
+      for(const row of sourceLinks.filter(r=>r.build_id===document.querySelector('#deck-id')?.textContent)) images.append(sourceOnly(row));
       hero.prepend(images);
     }
   }
