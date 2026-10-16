@@ -101,8 +101,23 @@ header #stats,header .filter-note {color:var(--muted)}
 #content .deck-key-facts dt{color:var(--muted)}
 #content .deck-tabs{margin:0 0 12px;gap:6px}
 #content .deck-tabs button{padding:8px 10px;font-size:14px}
-#content>.deck-toolbar,#content>.deck-secondary-actions{padding-top:12px;margin-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-#content>.deck-toolbar button{font-size:13px;padding:8px 10px}
+#content>.deck-secondary-actions{padding-top:12px;margin-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+/* Keep deck navigation in the sticky modal header, including on narrow screens. */
+#deck>.dialog-head{flex-wrap:wrap}
+#deck>.dialog-head>div:first-child{flex:1;min-width:0}
+#deck>.dialog-head h2{overflow-wrap:anywhere}
+#deck>.dialog-head>#close{flex-shrink:0}
+#deck>.dialog-head>.deck-toolbar{flex:0 0 100%;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0;padding-top:10px;border-top:1px solid var(--line);min-width:0}
+#deck>.dialog-head>.deck-toolbar button{font-size:13px;padding:8px 10px;min-height:44px}
+#deck-position{flex:1;text-align:center}
+#deck-link-status:empty{display:none}
+#deck-link-status:not(:empty){flex-basis:100%}
+@media(max-width:600px){
+ #deck>.dialog-head>.deck-toolbar{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+ #deck-position{grid-column:1 / -1;grid-row:2}
+ #copy-deck-link,#deck-link-status,#deck>.dialog-head>.deck-toolbar input{grid-column:1 / -1}
+ #deck>.dialog-head>.deck-toolbar button{white-space:normal;overflow-wrap:anywhere}
+}
 @media(max-width:600px){
  #content>.hero{grid-template-columns:1fr;gap:10px}
  #content>.hero .preview img,#content>.hero .external-original{max-height:220px}

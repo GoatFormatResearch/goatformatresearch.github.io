@@ -87,7 +87,12 @@
    content.querySelector('.decklist-gallery')?.remove();
    const actions=content.querySelector('#deck-panel-overview > .deck-actions');
    if(actions){actions.classList.add('deck-secondary-actions');content.append(actions)}
-   const toolbar=content.querySelector('.deck-toolbar');if(toolbar)content.append(toolbar);
+   const toolbar=content.querySelector('.deck-toolbar'),head=document.querySelector('#deck > .dialog-head');
+   if(toolbar&&head){
+    head.querySelector('.deck-toolbar')?.remove();
+    toolbar.setAttribute('role','group');toolbar.setAttribute('aria-label','Decknavigation und Direktlink');
+    head.append(toolbar);
+   }
    const list=content.querySelector('#deck-tab-list');if(list)list.click();
   }
   const note=content.querySelector('#deck-review-status'),evidence=content.querySelector('#deck-panel-evidence');
@@ -95,7 +100,12 @@
   const reviewPanel=content.querySelector('[data-publication-review]');
   if(reviewPanel&&reviewPanel.parentElement===content&&content.lastElementChild!==reviewPanel)content.append(reviewPanel);
  };
- if(window.GOAT_TABS){const originalMount=window.GOAT_TABS.mount;window.GOAT_TABS.mount=id=>{originalMount(id);prioritizeDeck()}}
+ if(window.GOAT_TABS){const originalMount=window.GOAT_TABS.mount;window.GOAT_TABS.mount=id=>{
+  // Remove the preceding header controls before native global ID lookups bind
+  // the new deck. Moving the live nodes preserves navigation and copy handlers.
+  document.querySelector('#deck > .dialog-head > .deck-toolbar')?.remove();
+  originalMount(id);prioritizeDeck();
+ }}
  new MutationObserver(prioritizeDeck).observe(document.querySelector('#content'),{childList:true});prioritizeDeck();
 
  // Remove only redundant presentation, never distinct evidence or live errors.
