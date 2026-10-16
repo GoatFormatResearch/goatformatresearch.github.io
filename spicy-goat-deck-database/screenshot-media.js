@@ -6,17 +6,18 @@
   if(policy?.version!==1 || !Array.isArray(policy.images))return;
   const ids=new Set((window.GOAT_CATALOG||[]).map(r=>r['Build ID']));
   const externalIds=new Set((window.GOAT_EXTERNAL_MEDIA?.images||[]).filter(r=>r.public_display===true).map(r=>r.build_id));
-  const rows=policy.images.filter(r=>ids.has(r.build_id)&&!externalIds.has(r.build_id)&&/^BLD-\d{3}$/.test(r.build_id)&&/^[a-f0-9]{64}$/.test(r.sha256)&&r.path===`images/screenshots/${r.build_id}-${r.sha256}.jpg`&&Array.isArray(r.dimensions)&&r.dimensions.length===2&&r.dimensions.every(n=>Number.isInteger(n)&&n>0)&&typeof r.source_url==='string'&&r.source_url.startsWith('https://'));
+  const rows=policy.images.filter(r=>ids.has(r.build_id)&&!externalIds.has(r.build_id)&&/^BLD-\d{3}$/.test(r.build_id)&&/^[a-f0-9]{64}$/.test(r.sha256)&&r.path===`images/screenshots/${r.build_id}-${r.anonymized===true?r.source_sha256:r.sha256}.jpg`&&(!r.anonymized||/^[a-f0-9]{64}$/.test(r.source_sha256))&&Array.isArray(r.dimensions)&&r.dimensions.length===2&&r.dimensions.every(n=>Number.isInteger(n)&&n>0)&&typeof r.source_url==='string'&&r.source_url.startsWith('https://'));
   const byId=new Map(rows.map(r=>[r.build_id,r]));
   window.GOAT_SCREENSHOT_IDS=new Set(byId.keys());
   function figure(row,detail){
     const box=document.createElement('figure');box.className='screenshot-media';
-    const img=document.createElement('img');img.src=row.path;img.alt='Archivierte Deckabbildung '+row.build_id+' · Screenshot-Ersatz';img.className=detail?'external-original':'deck-thumb';img.style.maxWidth='100%';img.style.objectFit='contain';
-    const caption=document.createElement('p');caption.className='muted';caption.textContent=`Archivierter Screenshot-Ersatz · ${row.dimensions[0]} × ${row.dimensions[1]} px · Originalauflösung`;
+    const img=document.createElement('img');img.src=row.path+(row.anonymized?'?privacy='+row.sha256:'');img.alt='Archivierte Deckabbildung '+row.build_id+' · Screenshot-Ersatz';img.className=detail?'external-original':'deck-thumb';img.style.maxWidth='100%';img.style.objectFit='contain';
+    const caption=document.createElement('p');caption.className='muted';caption.textContent=`${row.anonymized?'Anonymisierter':'Archivierter'} Screenshot-Ersatz · ${row.dimensions[0]} × ${row.dimensions[1]} px${row.anonymized?' · Personen abgedeckt; keine Karten rekonstruiert':' · Originalauflösung'}`;
     img.addEventListener('error',()=>{caption.textContent='Screenshot-Ersatz derzeit nicht verfügbar. Bitte die Quelle öffnen.';img.remove()});
-    if(detail){const button=document.createElement('button');button.type='button';button.dataset.image=row.path;button.setAttribute('aria-label','Screenshot-Ersatz vergrößern');button.append(img);box.append(button)}else{img.dataset.deck=row.build_id;box.append(img)}
+    if(detail){const button=document.createElement('button');button.type='button';button.dataset.image=img.src;button.dataset.anonymized=String(row.anonymized===true);button.setAttribute('aria-label','Screenshot-Ersatz vergrößern');button.append(img);box.append(button)}else{img.dataset.deck=row.build_id;box.append(img)}
     const link=document.createElement('a');link.href=row.source_url;link.textContent='Quelle der archivierten Deckabbildung';link.target='_blank';link.rel='noopener noreferrer';box.append(caption,link);return box;
   }
+  document.addEventListener('click',event=>{const b=event.target.closest('[data-image]');if(!b)return;const download=document.querySelector('#original-image-download');if(download)download.textContent=b.dataset.anonymized==='true'?'Anonymisierten Screenshot speichern':'Angezeigtes Bild speichern';});
   function refresh(){
     for(const card of document.querySelectorAll('#g .card')){
       if(card.dataset.screenshotMedia)continue;card.dataset.screenshotMedia='checked';const row=byId.get(card.querySelector('[data-deck]')?.dataset.deck),placeholder=card.querySelector('.thumb-placeholder,.image-missing');if(row&&placeholder)placeholder.replaceWith(figure(row,false));

@@ -64,12 +64,12 @@
       "sha256": "d528afbafece9f40c1954c8e919f9636a24395912c3a73924972d793fa9bc990"
     },
     "images/screenshots/BLD-109-348b83974ea8256c7c505089173d4607b8f60a43b032514ba6dfab0c121aa006.jpg": {
-      "size": 320641,
-      "sha256": "348b83974ea8256c7c505089173d4607b8f60a43b032514ba6dfab0c121aa006"
+      "size": 1069670,
+      "sha256": "a690dbf9ccbb5052251baa9b205c0c67da1f8c7ee323b72c9e45b9f76ef60c61"
     },
     "images/screenshots/BLD-110-7cc83a7e6db881c7702a1eee21ce10b1375c99aefa0e03908c9e9a35788e79b4.jpg": {
-      "size": 317910,
-      "sha256": "7cc83a7e6db881c7702a1eee21ce10b1375c99aefa0e03908c9e9a35788e79b4"
+      "size": 1088019,
+      "sha256": "5ea36ba99b4ecd6b2914d99541ff07b301290429b840b384e9cfa860eaf7a32d"
     },
     "images/screenshots/BLD-118-abf7b3f0efcdc28a2b5e96fe126d9c4834a9f4f77fb8edb8820b70b6f8f89afa.jpg": {
       "size": 553239,
@@ -92,8 +92,8 @@
       "sha256": "43dde9f7f9af167ae99cee06533eebc59b68a45f3e9cf99f9a1f7b2f550dd297"
     },
     "images/screenshots/BLD-137-066c886a358ff6a1dbab00c2fd5bb22839ef166be5219b3654a95436e16fd9f0.jpg": {
-      "size": 535470,
-      "sha256": "066c886a358ff6a1dbab00c2fd5bb22839ef166be5219b3654a95436e16fd9f0"
+      "size": 1650694,
+      "sha256": "1d335452b1a32e97c718bb07e9afbd130f0b0a48842636be9964e37b06c63622"
     },
     "images/screenshots/BLD-138-7e4bf86931641ff7fcd151ac1c6e81549227f7204fece3d77c109452a7c056d1.jpg": {
       "size": 430227,
@@ -132,12 +132,12 @@
       "sha256": "ccbc10456c2c1bc5f2616bc3756b3ff18aea4427af722039426518d6ee7f87f5"
     },
     "screenshot-media-policy.js": {
-      "size": 2720,
-      "sha256": "eed1652f65ea8018e01cf7165d958be3ff18335dd66ad04d85ad498ec01ee826"
+      "size": 3023,
+      "sha256": "71d92749c1e12cba4cf610960929ef2ec7a5c0185159671e8d9fc177233bee38"
     },
     "screenshot-media.js": {
-      "size": 4958,
-      "sha256": "8422798ce6f40162535a58565395f738c2b1ac3bed9c634c6c2fda3ee15ff539"
+      "size": 5561,
+      "sha256": "a54bff7d1aa1152260943dbfdf01c768309a0f9ab8d7d69e68ed6aa9668ee867"
     },
     "site-config.js": {
       "size": 287,
