@@ -112,12 +112,12 @@
       "sha256": "e3df6d2fb60e1e8991d251bfdf8c82f58b267af986e1c2cf88bd383fefdcd5ce"
     },
     "phase7.css": {
-      "size": 4726,
-      "sha256": "db44718dd1f351f0432e8b24b069e9622f7308cd9d7873d71ddc56a0cb117b5f"
+      "size": 6353,
+      "sha256": "d27e1b1fb25d665662721a4057f034784e1e1c1f769b87cb2e4156c02a93edd9"
     },
     "phase7.js": {
-      "size": 8971,
-      "sha256": "2d96661f67def85f003eca58094e1f60cd89ef27f64c743534a1415b1c65ffdb"
+      "size": 10685,
+      "sha256": "1d9bc03d8ff222ef852dd27367b18df1e7819434ee0b19117c85af3483c213ef"
     },
     "public-approval-manifest.json": {
       "size": 2307,

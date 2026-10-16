@@ -9,7 +9,27 @@
  const landing=document.createElement('section');landing.id='phase7-home';landing.className='phase7-landing';
  landing.innerHTML='<h2>Deckideen, Belege und offene Fragen.</h2><p>Erkunde ungewöhnliche Strategien und ihre dokumentierten Quellen. Fehlende Informationen bleiben sichtbar unbekannt. Turniererfolg, Belegqualität und redaktionelle Einschätzung sind getrennte Angaben.</p><div class="phase7-highlights"></div><p><a href="#browser">Deckübersicht öffnen ↓</a> · <a href="#phase7-method">Datenqualität verstehen</a></p>';
  for(const [label,count] of [['Profile',records.length],['Familien',new Set(records.map(r=>r['Family ID'])).size],['Mit Bild',records.filter(r=>r.images.length).length],['Mit Kartenzeilen',records.filter(r=>r['Deck Cards'].length).length]]){const box=document.createElement('article'),n=document.createElement('strong');n.textContent=count;box.append(n,document.createTextNode(label));landing.querySelector('.phase7-highlights').append(box)}
- document.querySelector('main').prepend(landing);
+ // Keep the first deck row ahead of project statistics and secondary tools.
+ const main=document.querySelector('main'),browser=document.querySelector('#browser');
+ browser.after(landing);
+ const intro=document.createElement('p');intro.className='catalog-intro';
+ intro.textContent='Ungewöhnliche GOAT-Strategien mit Decklisten, Bildern und nachvollziehbaren Quellen.';
+ document.querySelector('h1').after(intro);
+ const filterDrawer=document.querySelector('.filter-drawer');
+ const filterNote=document.querySelector('.filter-note');
+ if(filterDrawer&&filterNote)filterDrawer.append(filterNote);
+ const results=document.querySelector('#results'),reset=document.querySelector('#reset'),chips=document.querySelector('#chips');
+ const resultTools=document.createElement('div');resultTools.className='catalog-result-tools';
+ resultTools.append(results,reset);browser.prepend(resultTools);
+ if(chips)browser.prepend(chips);
+ const tools=document.createElement('details');tools.id='catalog-tools';tools.className='catalog-tools';
+ const toolsLabel=document.createElement('summary');toolsLabel.textContent='Merkliste, gespeicherte Ansichten & Teilen';tools.append(toolsLabel);
+ for(const node of main.querySelectorAll(':scope > .personal-drawer,:scope > .view-link-tools'))tools.append(node);
+ browser.after(tools);
+ // The full export label stays available with the methodology below the catalog.
+ const compactStats=()=>{document.querySelector('#stats').textContent=`${records.length} Deckprofile · ${new Set(records.map(r=>r['Family ID'])).size} Familien · ${String(config.version).split(' · ')[0]}`};
+ compactStats();
+
  const review=window.GOAT_PUBLICATION_REVIEW||{};
  if(config.private_preview){
   const featured=document.createElement('section');featured.className='phase8-featured';featured.innerHTML='<h2>Eine kuratierte Reise durch GOAT.</h2><p>24 echte Builds aus dem unveränderten Master. Vollständige Listen und offene Bildtranskriptionen bleiben unterscheidbar. Die Reihenfolge ist eine redaktionelle Auswahl, kein neues Spice-Ranking.</p><div class="phase8-picks"></div>';
@@ -19,6 +39,7 @@
   for(const id of new Set(records.map(x=>x['Family ID']))){const x=records.find(r=>r['Family ID']===id),b=document.createElement('button');b.dataset.filter='family';b.dataset.value=id;b.className='inline-filter';b.textContent=x.family['Canonical Family']||id;families.append(b)}landing.append(families);
  }
  const method=document.createElement('section');method.id='phase7-method';method.innerHTML='<h2>Methodik & Versionsstatus</h2><p>Eine Deckliste kann unvollständig sein, obwohl ein Bild vorhanden ist. E0–E5 beschreibt dokumentierte Turnierleistung; A–D die Dokumentation. Spice ist eine redaktionelle Einschätzung. Unbekannte Main-, Side- und Extra-Karten werden nicht ergänzt.</p><p>Die Online-Ausgabe benötigt eine gesonderte Freigabe jedes Profils und jedes Bilds. Eine bestandene technische Prüfung ersetzt keine Rechtefreigabe.</p>';document.querySelector('main').append(method);
+ const version=document.createElement('p');version.className='muted';version.textContent='Exportstand: '+config.version;method.append(version);
  const thumbnails=config.thumbnails||{};
  const preview=()=>{for(const img of document.querySelectorAll('#content img,#g img,#deck-table img')){const key=img.getAttribute('src');if(thumbnails[key]){img.src=thumbnails[key];img.dataset.original=key}}};
  for(const selector of ['#content','#g','#deck-table'])new MutationObserver(preview).observe(document.querySelector(selector),{childList:true,subtree:true});preview();

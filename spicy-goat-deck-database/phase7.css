@@ -8,3 +8,35 @@ button,input,select,textarea,summary{color:#eef8f1;background:#203c2c;border-col
 /* External originals are fetched without credentials, never copied to this site. */
 .external-media{margin:0 0 16px;max-width:100%;min-width:0}.external-media img{display:block;max-width:100%;height:auto}.external-media .deck-thumb{width:100%;height:205px}.external-media>button{display:block;width:100%;padding:0;background:transparent}.external-media .external-original{width:100%;max-height:570px}.external-media p,.external-media a{font-size:12px;overflow-wrap:anywhere}
 @media(prefers-color-scheme:dark){.card>button[data-deck],.nav-primary button[aria-pressed="true"]{color:#10251e}.card .deck-actions button{color:#1e2d28;background:#eaf2e8}}
+
+/* Compact catalog entry: deck content before project statistics and saved tools. */
+#publication-status{padding:7px 5%;font-size:13px}
+header .wrap{padding-top:18px;padding-bottom:14px}
+header h1{font-size:clamp(26px,3.4vw,38px);line-height:1.15;margin:6px 0}
+header .catalog-intro{margin:8px 0;font-size:15px;max-width:780px}
+header #stats{margin:6px 0 12px;font-size:13px}
+header label[for=q]{font-size:14px;margin-bottom:5px}
+header #q{padding:11px 13px;min-height:46px}
+header .filter-drawer{margin:8px 0 0}
+header .filter-drawer>summary{display:list-item;min-height:44px;padding:9px 12px;border-radius:7px}
+header .filter-note{margin:12px 0 0}
+main.wrap{padding-top:14px}
+.browse-nav{margin-bottom:10px;gap:8px}
+.catalog-result-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px}
+.catalog-result-tools #results{margin:0;font-size:14px}
+.catalog-result-tools #reset{font-size:13px;padding:8px 12px}
+#browser>.chips{margin:0 0 10px}
+#browser>.chips:empty{display:none}
+#browser .toolbar{margin-bottom:12px}
+.catalog-tools{margin:24px 0 0;border-top:1px solid var(--line);padding-top:12px}
+.catalog-tools>summary{min-height:44px;padding:9px 0;font-size:14px}
+.catalog-tools .personal-drawer{margin-top:12px}
+.phase7-landing{border-top:1px solid var(--line);margin-top:20px;padding:18px 0}
+@media(max-width:600px){
+ header .wrap{padding-top:14px;padding-bottom:12px}
+ header .catalog-intro{font-size:14px;line-height:1.45}
+ header #stats{font-size:12px}
+ .catalog-result-tools{flex-wrap:wrap}
+ .browse-nav{gap:6px}
+ .browse-nav .nav-primary button{font-size:13px;padding:9px 8px}
+}
