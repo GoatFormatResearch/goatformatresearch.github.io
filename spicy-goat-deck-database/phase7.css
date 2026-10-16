@@ -195,3 +195,17 @@ dialog .dialog-head :is(#close,#close-image):active{background:var(--surface);co
 .deck-card-reference{font-size:12px;margin:16px 0}
 @media(max-width:700px){.deck-main-columns,.deck-aux-columns{grid-template-columns:1fr}.deck-card-group li{padding-top:9px;padding-bottom:9px}.deck-export-actions button{width:100%;white-space:normal}}
 @media print{.deck-export-actions,.deck-registration>.deck-export-status,.deck-card-reference{display:none!important}.deck-main-columns{grid-template-columns:repeat(3,minmax(0,1fr))}.deck-aux-columns{grid-template-columns:repeat(2,minmax(0,1fr))}.deck-card-group h4{background:#eee!important}.deck-card-count{color:#111}}
+
+/* The image alone scrolls: wrapped controls and downloads remain in the dialog. */
+#lightbox{padding:0;box-sizing:border-box;max-width:calc(100vw - 24px);height:95vh;height:95dvh;max-height:calc(100dvh - 24px);overflow:hidden}
+#lightbox[open]{display:flex;flex-direction:column}
+#lightbox>.dialog-head{position:static;flex:none;flex-wrap:wrap;gap:8px;padding:12px;min-width:0}
+#lightbox>.dialog-head>div{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+#lightbox #image-position{flex:1 1 160px;min-width:0;overflow-wrap:anywhere}
+#lightbox .image-scroll{height:auto;flex:1 1 auto;min-height:0;min-width:0;width:100%;box-sizing:border-box;padding:12px;overflow:auto;overscroll-behavior:contain}
+#lightbox .image-scroll:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+#lightbox #full-image{display:block;margin:auto;max-width:100%;max-height:100%}
+#lightbox #full-image.actual{margin:0;max-width:none;max-height:none}
+#lightbox #image-view-state,#lightbox #image-dimensions{flex:none;font-size:12px;line-height:1.4;margin:0;padding:6px 12px;overflow-wrap:anywhere}
+#lightbox #image-view-state{color:var(--muted);border-bottom:1px solid var(--line)}
+#lightbox #original-image-download{flex:none;margin:0;padding:12px;min-height:44px;box-sizing:border-box}

@@ -235,6 +235,34 @@
  for(const id of ['next','prev','cards-view','table-view','reset'])document.querySelector('#'+id)?.addEventListener('click',sync);
  // Visible error information, rather than only a broken-image icon.
  document.addEventListener('error',event=>{if(event.target.tagName!=='IMG')return;const img=event.target;if(img.parentElement.querySelector('.phase7-image-error'))return;const text=document.createElement('p');text.className='phase7-image-error';text.setAttribute('role','alert');text.textContent='Bilddatei fehlt oder ist beschädigt. Keine Ersatzabbildung verfügbar.';img.parentElement.append(text)},true);
+ // Focusable, keyboard-pannable original image. Existing gallery/close handlers stay intact.
+ const prepareImageViewport=()=>{
+  const dialog=document.querySelector('#lightbox'),image=document.querySelector('#full-image'),zoom=document.querySelector('#zoom'),viewport=dialog?.querySelector('.image-scroll');
+  if(!dialog||!image||!zoom||!viewport)return;
+  viewport.id='image-viewport';viewport.tabIndex=0;viewport.setAttribute('role','region');viewport.setAttribute('aria-label','Verschiebbarer Deckbildbereich');
+  const hint=document.createElement('p');hint.id='image-view-state';hint.setAttribute('role','status');hint.setAttribute('aria-live','polite');viewport.before(hint);
+  viewport.setAttribute('aria-describedby',hint.id);zoom.setAttribute('aria-controls',viewport.id);zoom.setAttribute('aria-describedby',hint.id);
+  const update=()=>{
+   const text=image.classList.contains('actual')?'Originalgröße · Pfeiltasten verschieben das fokussierte Bild. Pos1/Ende: Anfang/Ende.':'Bild eingepasst · „Originalgröße“ öffnet die Ansicht in Originalauflösung.';
+   if(hint.textContent!==text)hint.textContent=text;
+  };
+  const reset=()=>viewport.scrollTo({left:0,top:0,behavior:'auto'});
+  zoom.addEventListener('click',()=>{update();if(image.classList.contains('actual'))viewport.focus({preventScroll:true});else reset()});
+  viewport.addEventListener('keydown',event=>{
+   if(event.target!==viewport||!image.classList.contains('actual')||!image.complete||!image.naturalWidth||event.altKey||event.ctrlKey||event.metaKey)return;
+   const x=Math.max(48,Math.round(viewport.clientWidth/8)),y=Math.max(48,Math.round(viewport.clientHeight/8));
+   const moves={ArrowLeft:[-x,0],ArrowRight:[x,0],ArrowUp:[0,-y],ArrowDown:[0,y],PageUp:[0,-viewport.clientHeight*.85],PageDown:[0,viewport.clientHeight*.85]};
+   if(moves[event.key])viewport.scrollBy({left:moves[event.key][0],top:moves[event.key][1],behavior:'auto'});
+   else if(event.key==='Home')reset();
+   else if(event.key==='End')viewport.scrollTo({left:viewport.scrollWidth,top:viewport.scrollHeight,behavior:'auto'});
+   else return;
+   event.preventDefault();event.stopPropagation();
+  });
+  new MutationObserver(changes=>{if(changes.some(c=>c.attributeName==='src'))reset();update()}).observe(image,{attributes:true,attributeFilter:['class','src']});
+  new MutationObserver(()=>{reset();update()}).observe(dialog,{attributes:true,attributeFilter:['open']});
+  update();
+ };
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',prepareImageViewport,{once:true});else prepareImageViewport();
  // Public fixture has no authoritative rankings; never invent ratings or deck cards.
  if(config.test_only){document.title='Spicy GOAT · NICHT PRODUKTIVE Pages-Vorschau';document.querySelector('h1').textContent='Die Oberfläche erproben.'}
 })();

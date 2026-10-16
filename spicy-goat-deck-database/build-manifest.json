@@ -109,7 +109,7 @@
     },
     "index.html": {
       "size": 7574,
-      "sha256": "4782fc723f436c3fd86ae97aae6641345bacd2a79687cb7b849c57a7462b00d6"
+      "sha256": "d15f0cd1068f272e8d78ed5028592fef38b4708463adc192f2e495b1f696d248"
     },
     "layout.js": {
       "size": 883,
@@ -120,12 +120,12 @@
       "sha256": "e3df6d2fb60e1e8991d251bfdf8c82f58b267af986e1c2cf88bd383fefdcd5ce"
     },
     "phase7.css": {
-      "size": 16402,
-      "sha256": "81e156e0c36d298215c75d864e428f2fb413448c0d518bbde542c74c76fbd1b6"
+      "size": 17682,
+      "sha256": "08615cdac9bebe09309f42df1a878e81036e59b386102e3b68aa2b605c42fb65"
     },
     "phase7.js": {
-      "size": 24053,
-      "sha256": "98baf4ffdd2c6bc92b24eac7e241cbd12afef6639512a7b5fdb7a8cc9751e0c6"
+      "size": 26638,
+      "sha256": "af4c1f11b635d7ae99f8e4ecbdeb9a4b168bdfa61502b339c401c8e8f8ff2d4a"
     },
     "public-approval-manifest.json": {
       "size": 2307,
