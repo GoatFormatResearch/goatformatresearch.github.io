@@ -39,6 +39,14 @@
       "size": 3113,
       "sha256": "e099ac0f15f65662b1d68394b4c67dccb58c53b10ed9b1c605fd048136159b67"
     },
+    "deck-list.js": {
+      "size": 7778,
+      "sha256": "c24cac070b93d4be889623a2e89007e119ec62cd28b423981d4f5cea6571e56e"
+    },
+    "deck-reference.js": {
+      "size": 34740,
+      "sha256": "3a9237b39d0eba6fd1d5e5dbdc534297884d202072d95099d787f76c1611485d"
+    },
     "deck-tabs.js": {
       "size": 3923,
       "sha256": "156dd970bec6f88822d1f7d29a9a077c455bdc9310668537e000ea3eb9b55e64"
@@ -100,8 +108,8 @@
       "sha256": "7e4bf86931641ff7fcd151ac1c6e81549227f7204fece3d77c109452a7c056d1"
     },
     "index.html": {
-      "size": 7422,
-      "sha256": "365214a7c34684d63885f0abdcc8ee3f3347761e3528455907e89b068c5a890f"
+      "size": 7559,
+      "sha256": "cf31117490759a680ba5f62a6f3f764004702b9bd32df4a51655ba958e6836c7"
     },
     "layout.js": {
       "size": 883,
@@ -112,12 +120,12 @@
       "sha256": "e3df6d2fb60e1e8991d251bfdf8c82f58b267af986e1c2cf88bd383fefdcd5ce"
     },
     "phase7.css": {
-      "size": 14057,
-      "sha256": "e8b3a9d128ba197428cf6df4ccbf639638498428565d0483b805e246f86842ad"
+      "size": 16183,
+      "sha256": "768aab23e1ae2783b84ab5e05b759b66ca08d19985b6398fecab39c1cb676759"
     },
     "phase7.js": {
-      "size": 23892,
-      "sha256": "a1b79caf307db69382a8936bc7fd7f0a664d2c4d1a9ce93a8656a52c853a58b8"
+      "size": 23973,
+      "sha256": "4e7e471f61043df65933f43d591b0e1e02fe051d4827fb11f0f37eb074cb5cbf"
     },
     "public-approval-manifest.json": {
       "size": 2307,

@@ -94,6 +94,7 @@
     head.append(toolbar);
    }
    const list=content.querySelector('#deck-tab-list');if(list)list.click();
+   window.GOAT_DECK_LIST?.mount(document.querySelector('#deck-id').textContent);
   }
   const note=content.querySelector('#deck-review-status'),evidence=content.querySelector('#deck-panel-evidence');
   if(note&&evidence&&note.parentElement!==evidence)evidence.prepend(note);
