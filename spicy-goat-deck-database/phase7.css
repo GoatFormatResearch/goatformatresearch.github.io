@@ -106,7 +106,19 @@ header #stats,header .filter-note {color:var(--muted)}
 #deck>.dialog-head{flex-wrap:wrap}
 #deck>.dialog-head>div:first-child{flex:1;min-width:0}
 #deck>.dialog-head h2{overflow-wrap:anywhere}
-#deck>.dialog-head>#close{flex-shrink:0}
+#deck>.dialog-head>#close{
+ position:relative;flex:0 0 44px;width:44px;height:44px;min-height:44px;
+ padding:0;font-size:0;border-radius:50%;border:1px solid var(--line);
+ background:var(--surface-raised);color:var(--muted);align-self:flex-start;
+}
+#deck>.dialog-head>#close::before,#deck>.dialog-head>#close::after{
+ content:"";position:absolute;top:50%;left:50%;width:18px;height:2px;
+ border-radius:2px;background:currentColor;pointer-events:none;
+ transform:translate(-50%,-50%) rotate(45deg);
+}
+#deck>.dialog-head>#close::after{transform:translate(-50%,-50%) rotate(-45deg)}
+#deck>.dialog-head>#close:hover{background:var(--hover);color:var(--ink);border-color:var(--control-border)}
+#deck>.dialog-head>#close:active{background:var(--surface);color:var(--accent)}
 #deck>.dialog-head>.deck-toolbar{flex:0 0 100%;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0;padding-top:10px;border-top:1px solid var(--line);min-width:0}
 #deck>.dialog-head>.deck-toolbar button{font-size:13px;padding:8px 10px;min-height:44px}
 #deck-position{flex:1;text-align:center}
