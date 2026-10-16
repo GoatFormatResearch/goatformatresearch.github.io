@@ -40,12 +40,12 @@
       "sha256": "e099ac0f15f65662b1d68394b4c67dccb58c53b10ed9b1c605fd048136159b67"
     },
     "deck-list.js": {
-      "size": 7778,
-      "sha256": "c24cac070b93d4be889623a2e89007e119ec62cd28b423981d4f5cea6571e56e"
+      "size": 8919,
+      "sha256": "2c9210108f164d7bb16451d95724c2deb41aeb02ec24c87e9aa828c8de6be891"
     },
     "deck-reference.js": {
-      "size": 34740,
-      "sha256": "3a9237b39d0eba6fd1d5e5dbdc534297884d202072d95099d787f76c1611485d"
+      "size": 47105,
+      "sha256": "015473f7b865f8d04b90df9af0070c9b282d434228f44cf7ac949e3aeb1c9f9b"
     },
     "deck-tabs.js": {
       "size": 3923,
@@ -109,7 +109,7 @@
     },
     "index.html": {
       "size": 7559,
-      "sha256": "cf31117490759a680ba5f62a6f3f764004702b9bd32df4a51655ba958e6836c7"
+      "sha256": "46eec7bd34d5fb95eb0e9a9b18118f433bc671342198801c643d9e166b75e140"
     },
     "layout.js": {
       "size": 883,
