@@ -6,7 +6,7 @@
     "public_approved": true,
     "thumbnails": {},
     "external_images": 19,
-    "external_source_links": 1
+    "external_source_links": 5
   },
   "catalog_sha256": "eaa18eb1dd08412e06c7fda47f96f0241b178ea0656ce6733043e47a69b3324a",
   "files": {
@@ -51,12 +51,12 @@
       "sha256": "4643f4a99bbc59a53f912971b08527052e5b95692719b885e6f8c67a458ed814"
     },
     "external-media.js": {
-      "size": 10166,
-      "sha256": "82b84e8e2ec7003e8103c778661cbb73cb27912424f26511df09992d3d085bc8"
+      "size": 11450,
+      "sha256": "d4e9cdcdf7f20bb629078a02e71447d64db8a737907cb09e968f7defd0bcdf2a"
     },
     "external-source-links.js": {
-      "size": 463,
-      "sha256": "6ef0d98e3b368ee50bf10f229bb868f5c2772f18b2ce7932daa9d30bf706d693"
+      "size": 2260,
+      "sha256": "229b1b3978a1e216d3671828592f70d4a3ae5ac938565a6fd79b3c8f53586c76"
     },
     "guard.js": {
       "size": 781,
@@ -96,7 +96,7 @@
     },
     "site-config.js": {
       "size": 270,
-      "sha256": "7c45f8299965c6b406b0c617886e3517d09b5cf26c5bca73492e9519558c96bd"
+      "sha256": "763cf3e7460ef5fc77511a9a957cdb16c5368907a14cae4661669221f848862b"
     },
     "style.css": {
       "size": 15019,

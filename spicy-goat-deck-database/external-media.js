@@ -20,15 +20,23 @@
   };
   const records = policy.images.filter(valid);
   // A source-only record is navigation, never an image-fetch permission.
-  const sourceLinks = (Array.isArray(window.GOAT_SOURCE_LINKS)?window.GOAT_SOURCE_LINKS:[]).filter(r =>
-    r && r.build_id==='BLD-135' && catalogIds.has(r.build_id) && r.status==='SOURCE_ONLY_NOT_APPROVED_FOR_EMBEDDING' &&
-    r.source_url==='https://www.goatformat.at/2026/10/02/ggp-amstetten-oesterreichs-erster-goat-grand-prix/' &&
-    r.image_url==='https://www.goatformat.at/wp-content/uploads/2026/10/GOAT-GRAND-PRIX-AMSTETTEN-2026-3rd-Place-Peter-Gross-2048x2048.png' &&
-    ['source_label','image_label'].every(k=>typeof r[k]==='string' && r[k].length>0 && r[k].length<=150));
+  const sourceTargets = {
+    'BLD-135':['https://www.goatformat.at/2026/10/02/ggp-amstetten-oesterreichs-erster-goat-grand-prix/','https://www.goatformat.at/wp-content/uploads/2026/10/GOAT-GRAND-PRIX-AMSTETTEN-2026-3rd-Place-Peter-Gross-2048x2048.png','ORIGINAL_GRAPHIC'],
+    'BLD-128':['https://www.fxistudio.it/praesidium/list?tournament=346&user=900','https://www.fxistudio.it/praesidium/list.php?tournament=346&user=900&as_images=1','GENERATED_DECK_VIEW'],
+    'BLD-136':['https://www.fxistudio.it/praesidium/list?tournament=354&user=2507','https://www.fxistudio.it/praesidium/list.php?tournament=354&user=2507&as_images=1','GENERATED_DECK_VIEW'],
+    'BLD-137':['https://www.fxistudio.it/praesidium/list?tournament=354&user=1366','https://www.fxistudio.it/praesidium/list.php?tournament=354&user=1366&as_images=1','GENERATED_DECK_VIEW'],
+    'BLD-138':['https://www.fxistudio.it/praesidium/list?tournament=236&user=1070','https://www.fxistudio.it/praesidium/list.php?tournament=236&user=1070&as_images=1','GENERATED_DECK_VIEW']
+  };
+  const sourceLinks = (Array.isArray(window.GOAT_SOURCE_LINKS)?window.GOAT_SOURCE_LINKS:[]).filter(r => {
+    const target=r && sourceTargets[r.build_id];
+    return target && catalogIds.has(r.build_id) && r.status==='SOURCE_ONLY_NOT_APPROVED_FOR_EMBEDDING' &&
+      r.source_url===target[0] && r.representation_url===target[1] && r.representation_kind===target[2] &&
+      ['source_label','representation_label'].every(k=>typeof r[k]==='string' && r[k].length>0 && r[k].length<=150);
+  });
   function sourceOnly(r) {
     const box=document.createElement('aside');box.className='external-source-only note';
-    const text=document.createElement('p');text.textContent='Zusätzlicher Primärbeleg gefunden. Das Bild wird hier nicht eingebettet: Der Anbieter unterstützt den geprüften Abruf ohne Anbieter-Cookies mit Inhaltsprüfung derzeit nicht.';box.append(text);
-    for(const [urlKey,labelKey] of [['source_url','source_label'],['image_url','image_label']]) {
+    const text=document.createElement('p');text.textContent=r.representation_kind==='GENERATED_DECK_VIEW'?'Die registrierte Liste kann beim Anbieter als grafische Kartenansicht geöffnet werden. Dies ist keine historische Originalgrafik. Der externe Kartenviewer ruft eigene Kartendaten und Bilder ab. Seine Bannlistenmarkierungen sind keine historische GOAT-Legalitätsprüfung.':'Zusätzlicher Primärbeleg gefunden. Das Bild wird hier nicht eingebettet: Der Anbieter unterstützt den geprüften Abruf ohne Anbieter-Cookies mit Inhaltsprüfung derzeit nicht.';box.append(text);
+    for(const [urlKey,labelKey] of [['source_url','source_label'],['representation_url','representation_label']]) {
       const p=document.createElement('p'),a=document.createElement('a');a.href=r[urlKey];a.textContent=r[labelKey];a.target='_blank';a.rel='noopener noreferrer';p.append(a);box.append(p);
     }
     return box;
