@@ -72,11 +72,13 @@
     load(r).then(url=>{
       const img=document.createElement('img');img.alt='Originaldeckliste '+r.build_id+' · GoatFormat.com';img.className=detail?'external-original':'deck-thumb';img.src=url;
       img.style.maxWidth='100%';img.style.objectFit='contain';
-      img.addEventListener('error',()=>{status.textContent='Bild kann nicht angezeigt werden. Bitte die Bildquelle öffnen.';img.remove();});
+      img.addEventListener('error',()=>{window.GOAT_IMAGE_DETAILS?.clear(f,status);status.textContent='Bild kann nicht angezeigt werden. Bitte die Bildquelle öffnen.';img.remove();});
       if (detail) {const b=document.createElement('button');b.type='button';b.dataset.image=url;b.setAttribute('aria-label','Externes Originalbild vergrößern');b.append(img);f.prepend(b);}
       else {img.dataset.deck=r.build_id;f.prepend(img);}
-      status.textContent='Originalauflösung · SHA-256 geprüft · extern geladen';
-    }).catch(()=>{status.textContent='Originalbild derzeit nicht verfügbar oder verändert. Bitte die Bildquelle öffnen.';});
+      status.textContent='SHA-256 geprüft · extern geladen';
+      const showProof=()=>window.GOAT_IMAGE_DETAILS?.show(f,status,[['SHA-256 (geprüft)',r.sha256],['Dateityp',r.mime],['Originalauflösung',img.naturalWidth&&img.naturalHeight?`${img.naturalWidth} × ${img.naturalHeight} Pixel`:null]]);
+      img.addEventListener('load',showProof,{once:true});showProof();
+    }).catch(()=>{window.GOAT_IMAGE_DETAILS?.clear(f,status);status.textContent='Originalbild derzeit nicht verfügbar oder verändert. Bitte die Bildquelle öffnen.';});
     return f;
   }
   function refresh() {

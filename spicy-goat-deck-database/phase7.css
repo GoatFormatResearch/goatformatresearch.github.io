@@ -88,3 +88,59 @@ header #stats,header .filter-note {color:var(--muted)}
  :root {color-scheme:light;--bg:#fff;--surface:#fff;--surface-raised:#fff;--ink:#111;--muted:#444;--line:#bbb;--accent:#805000;--green:#805000}
  .card,.directory-card,.comparison th:first-child,#phase7-method {background:#fff!important;color:#111!important}
 }
+
+/* Deck identity and image precede secondary tools; cards are the initial tab. */
+#content>.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin:0 0 16px;align-items:start}
+#content>.hero>div{min-width:0}
+#content>.hero .preview img,#content>.hero .external-original{max-height:320px;width:100%;object-fit:contain}
+#content>.hero .screenshot-media{margin:0 0 12px}
+#content>.hero .screenshot-media>button{padding:0;display:block;width:100%;background:var(--image-bg)}
+#content>.hero .thumbs img{max-height:64px}
+#content .deck-key-facts{margin:0 0 12px;display:grid;grid-template-columns:minmax(90px,1fr) minmax(0,2fr);gap:5px 12px}
+#content .deck-key-facts dd{margin:0;overflow-wrap:anywhere}
+#content .deck-key-facts dt{color:var(--muted)}
+#content .deck-tabs{margin:0 0 12px;gap:6px}
+#content .deck-tabs button{padding:8px 10px;font-size:14px}
+#content>.deck-toolbar,#content>.deck-secondary-actions{padding-top:12px;margin-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+#content>.deck-toolbar button{font-size:13px;padding:8px 10px}
+@media(max-width:600px){
+ #content>.hero{grid-template-columns:1fr;gap:10px}
+ #content>.hero .preview img,#content>.hero .external-original{max-height:220px}
+ #content .deck-key-facts{font-size:14px;gap:3px 10px}
+ #content .deck-tabs button{font-size:13px;padding:8px}
+}
+
+/* Redundant placeholders are removed in the shared presentation layer. */
+#content .deck-analysis-empty{padding:12px 0;margin:0;line-height:1.5}
+#content>.hero p.note{margin-top:10px;margin-bottom:10px}
+
+/* Touch- and keyboard-accessible explanations; dimensions remain separate. */
+.quality-guide{font-size:13px;line-height:1.5;min-width:0}
+.quality-guide>summary{padding:8px 10px;border-radius:7px}
+.quality-guide p{max-width:70ch;margin:10px 0}
+.filter-drawer .quality-guide{max-width:100%;margin-top:12px}
+#content .quality-guide{margin:12px 0}
+#content .tags .tag{white-space:normal;overflow-wrap:anywhere}
+/* Explicit 44 px touch target for the quality explanation. */
+.quality-guide>summary{box-sizing:border-box;min-height:44px}
+
+/* Navigation separates views from personal tools without adding a header row. */
+#open-catalog-tools{background:var(--surface-raised);color:var(--ink);border-color:var(--control-border)}
+#open-catalog-tools[aria-expanded=true]{border-color:var(--accent);color:var(--accent)}
+.tool-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:14px 0}
+.tool-group{border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0;background:var(--surface)}
+.tool-group h3{margin:0 0 12px;font-size:17px}
+.tool-group>button,.tool-group>label{display:block;max-width:100%;margin:10px 0}
+.tool-group select{max-width:100%}
+.tool-group .saved-tools{margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.tool-group .view-link-tools{margin-top:14px}
+.tool-group .import-label{overflow-wrap:anywhere}
+@media(max-width:600px){.tool-groups{grid-template-columns:1fr}.tool-group button{white-space:normal;overflow-wrap:anywhere}}
+
+/* Technical proof is optional to read; sources and privacy labels stay outside. */
+.image-proof{margin:8px 0 0;min-width:0;font-size:12px;line-height:1.5}
+.image-proof>summary{padding:8px;box-sizing:border-box;min-height:44px;border-radius:7px}
+.image-proof dl{margin:10px 0;display:block}
+.image-proof dt{color:var(--muted);margin-top:8px}
+.image-proof dd{margin:2px 0 8px;overflow-wrap:anywhere;word-break:break-word}
+.image-proof p{margin:8px 0}
