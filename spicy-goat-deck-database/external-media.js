@@ -115,5 +115,9 @@
   let queued=false;new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(()=>{queued=false;refresh();});}}).observe(document.querySelector('main')||document.body,{childList:true,subtree:true});
   // Dialog contents are outside main in the shared frontend.
   const content=document.querySelector('#content');if(content)new MutationObserver(refresh).observe(content,{childList:true});
-  refresh();window.addEventListener('beforeunload',()=>{for(const u of urls)URL.revokeObjectURL(u);});
+  // Keep successfully decoded URLs valid for this document's lifetime. Revoking
+  // during beforeunload races image consumers in WebKit on repeated reloads.
+  // File API unload cleanup releases this document's blob URL entries.
+  // Failed decodes above are still revoked immediately.
+  refresh();
 })();
