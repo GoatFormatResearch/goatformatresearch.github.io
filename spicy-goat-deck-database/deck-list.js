@@ -61,7 +61,7 @@
   if(m.plan){const note=node('p',m.plan.version_note,'muted');view.append(note)}
   if(m.eligible){
    const help=node('p',undefined,'muted');help.append(document.createTextNode('Datei herunterladen und in '));const a=node('a','Duelingbook');a.href='https://www.duelingbook.com/';a.target='_blank';a.rel='noopener noreferrer';help.append(a,document.createTextNode(' im Deck Constructor über „Import Deck“ öffnen. Keine automatische Kontoänderung; keine erneute Prüfung historischer Legalität.'));view.append(help);
-   button.addEventListener('click',()=>{const blob=new Blob([ydk(m)],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=String(id).replace(/[^A-Za-z0-9_-]/g,'_')+'.ydk';a.hidden=true;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000)});
+   button.addEventListener('click',()=>{const a=document.createElement('a');a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(ydk(m));a.download=String(id).replace(/[^A-Za-z0-9_-]/g,'_')+'.ydk';a.hidden=true;document.body.append(a);a.click();a.remove()});
   }else{const details=node('details'),summary=node('summary','Warum ist der Export gesperrt?'),list=node('ul');for(const e of m.errors)list.append(node('li',e));details.append(summary,list);view.append(details)}
   const count=items=>items.reduce((s,c)=>s+(c.count||0),0);
   function group(title,items,parent,empty){

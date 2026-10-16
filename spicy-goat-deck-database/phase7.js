@@ -207,7 +207,8 @@
  const method=document.createElement('section');method.id='phase7-method';method.innerHTML='<h2>Methodik & Versionsstatus</h2><p>Eine Deckliste kann unvollständig sein, obwohl ein Bild vorhanden ist. E0–E5 beschreibt dokumentierte Turnierleistung; A–D die Dokumentation. Spice ist eine redaktionelle Einschätzung. Unbekannte Main-, Side- und Extra-Karten werden nicht ergänzt.</p><p>Die Online-Ausgabe benötigt eine gesonderte Freigabe jedes Profils und jedes Bilds. Eine bestandene technische Prüfung ersetzt keine Rechtefreigabe.</p>';document.querySelector('main').append(method);
  const version=document.createElement('p');version.className='muted';version.textContent='Exportstand: '+config.version;method.append(version);
  const thumbnails=config.thumbnails||{};
- const preview=()=>{for(const img of document.querySelectorAll('#content img,#g img,#deck-table img')){const key=img.getAttribute('src');if(thumbnails[key]){img.src=thumbnails[key];img.dataset.original=key}}};
+ const hasThumbnails=Object.keys(thumbnails).length>0;
+ const preview=()=>{if(!hasThumbnails)return;for(const img of document.querySelectorAll('#content img,#g img,#deck-table img')){const key=img.getAttribute('src');if(thumbnails[key]){img.src=thumbnails[key];img.dataset.original=key}}};
  for(const selector of ['#content','#g','#deck-table'])new MutationObserver(preview).observe(document.querySelector(selector),{childList:true,subtree:true});preview();
  const detailReview=()=>{
   const target=document.querySelector('#content'),id=document.querySelector('#deck-id')?.textContent,row=records.find(r=>r['Build ID']===id),r=review[id];

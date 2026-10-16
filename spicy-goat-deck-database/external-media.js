@@ -1,12 +1,18 @@
 'use strict';
-// Public mode only. Original bytes stay on the publisher's server; blob URLs
-// exist only in browser memory after a credentialless, integrity-checked GET.
+// Public mode only. Original bytes are fetched from the publisher with no
+// credentials. Verified raster bytes are retained as document-local data URLs.
+// Pure byte conversion: no Blob registry or FileReader is needed for display.
+const goatRasterDataURL=(bytes,mime)=>{
+  if(!(bytes instanceof Uint8Array)||!bytes.length||bytes.length>10000000||!['image/png','image/jpeg','image/webp'].includes(mime))throw Error('invalid raster bytes');
+  const parts=[];for(let i=0;i<bytes.length;i+=8192)parts.push(String.fromCharCode(...bytes.subarray(i,i+8192)));
+  return 'data:'+mime+';base64,'+btoa(parts.join(''));
+};
 (() => {
   if (!window.GOAT_SITE?.public_approved || window.GOAT_SITE.mode !== 'pages' || location.protocol === 'file:') return;
   const policy = window.GOAT_EXTERNAL_MEDIA;
   if (!policy || policy.version !== 1 || policy.authorization !== 'OWNER_EXPLICIT_AUTOMATIC_EXTERNAL_IMAGES_20261015' || !Array.isArray(policy.images)) return;
   const catalogIds=new Set((window.GOAT_CATALOG||[]).map(r=>r['Build ID']));
-  const cache = new Map(), urls = new Set();
+  const cache = new Map();
   const valid = r => {
     try {
       const u = new URL(r.url), s = new URL(r.source_page);
@@ -54,13 +60,13 @@
         if (advertised>limit) throw Error('image too large');
         const reader=res.body.getReader(), chunks=[]; let size=0;
         while (true) {const {done,value}=await reader.read(); if(done)break; size+=value.byteLength; if(size>limit){await reader.cancel();throw Error('image too large')}chunks.push(value);}
-        const blob = new Blob(chunks,{type:r.mime});
-        const actual = [...new Uint8Array(await crypto.subtle.digest('SHA-256',await blob.arrayBuffer()))].map(x=>x.toString(16).padStart(2,'0')).join('');
+        const bytes=new Uint8Array(size);let offset=0;
+        for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.byteLength;}
+        const actual = [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join('');
         if(actual!==r.sha256) throw Error('image changed');
-        const url=URL.createObjectURL(blob);
-        try {const decoded=new Image();decoded.src=url;await decoded.decode();}
-        catch(error){URL.revokeObjectURL(url);throw error;}
-        urls.add(url);return url;
+        const url=goatRasterDataURL(bytes,r.mime);
+        const decoded=new Image();decoded.src=url;await decoded.decode();
+        return url;
       } finally { clearTimeout(timer); }
     })());
     return cache.get(r.url);
@@ -117,9 +123,6 @@
   let queued=false;new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(()=>{queued=false;refresh();});}}).observe(document.querySelector('main')||document.body,{childList:true,subtree:true});
   // Dialog contents are outside main in the shared frontend.
   const content=document.querySelector('#content');if(content)new MutationObserver(refresh).observe(content,{childList:true});
-  // Keep successfully decoded URLs valid for this document's lifetime. Revoking
-  // during beforeunload races image consumers in WebKit on repeated reloads.
-  // File API unload cleanup releases this document's blob URL entries.
-  // Failed decodes above are still revoked immediately.
+  // The cache belongs to this document; no revocable image URL registry is used.
   refresh();
 })();
