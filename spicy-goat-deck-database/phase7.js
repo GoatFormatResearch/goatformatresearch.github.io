@@ -149,7 +149,7 @@
    'Turnierleistung (E0–E5): historische Einstufung der Turnierleistung bzw. des Turnierbezugs. Sie ist keine Bewertung der Quellenzuverlässigkeit oder Spielstärke.',
    'Dokumentation (A–D): übernommene Dokumentationsstufe. Decklistenabdeckung (L-Stufe): separat erfasster Stand der Kartenliste. Ein vorhandenes Bild bedeutet keine vollständige Transkription.',
    'Spice: redaktionelle Einschätzung. Novelty: historische Einschätzung der Originalität, sofern erfasst. Beides sind analytische Bewertungen, keine Primärfakten.',
-   'Die Originalwerte und ihre teils uneinheitlichen Beschreibungen bleiben erhalten. Diese Beschriftung ist keine neue fachliche Prüfung und keine Veröffentlichungs- oder Bildrechtefreigabe.'
+   'Bekannte Beschreibungen werden für die Anzeige übersetzt. Die historischen Originalwerte bleiben unverändert und im Profil nachlesbar. Diese Beschriftung ist keine neue fachliche Prüfung und keine Veröffentlichungs- oder Bildrechtefreigabe.'
   ]){const p=document.createElement('p');p.textContent=text;box.append(p)}
   return box;
  };
@@ -167,15 +167,18 @@
    if(!row||!tags)continue;card.dataset.qualityLabels='true';
    const [spice,evidence]=tags.children;
    if(spice)spice.textContent='Spice (redaktionell): '+(row['Editorial Spice']||'nicht erfasst');
-   if(evidence){const raw=String(row['Competitive Evidence']||'');evidence.textContent='Turnierleistung: '+(raw.match(/^E[0-5](?=\s|$)/)?.[0]||raw||'nicht erfasst');evidence.title=raw||'Nicht erfasst'}
-   const doc=document.createElement('span');doc.className='tag quality-documentation';const raw=String(row.Documentation||'');doc.textContent='Dokumentation: '+(raw.match(/^[A-D](?=\s|$)/)?.[0]||raw||'nicht erfasst');doc.title=raw||'Nicht erfasst';tags.append(doc);
+   if(evidence){const raw=String(row['Competitive Evidence']||'');evidence.textContent='Turnierleistung: '+(raw.match(/^E[0-5](?=\s|$)/)?.[0]||raw||'nicht erfasst');evidence.title=window.GOAT_DE.value('Competitive Evidence',raw)||'Nicht erfasst'}
+   const doc=document.createElement('span');doc.className='tag quality-documentation';const raw=String(row.Documentation||'');doc.textContent='Dokumentation: '+(raw.match(/^[A-D](?=\s|$)/)?.[0]||raw||'nicht erfasst');doc.title=window.GOAT_DE.value('Documentation',raw)||'Nicht erfasst';tags.append(doc);
   }
   const info=document.querySelector('#content > .hero > div:nth-child(2)'),tags=info?.querySelector('.tags');
   if(tags&&!tags.dataset.qualityLabels){
    tags.dataset.qualityLabels='true';const row=records.find(x=>x['Build ID']===document.querySelector('#deck-id')?.textContent);
-   if(row){const [spice,evidence]=tags.children;if(spice)spice.textContent='Spice (redaktionell): '+(row['Editorial Spice']||'nicht erfasst');if(evidence)evidence.textContent='Turnierleistung: '+(row['Competitive Evidence']||'nicht erfasst');
-    const doc=document.createElement('span');doc.className='tag quality-documentation';doc.textContent='Dokumentation: '+(row.Documentation||'nicht erfasst');tags.append(doc)}
+   if(row){const [spice,evidence]=tags.children;if(spice)spice.textContent='Spice (redaktionell): '+(row['Editorial Spice']||'nicht erfasst');if(evidence)evidence.textContent='Turnierleistung: '+(window.GOAT_DE.value('Competitive Evidence',row['Competitive Evidence'])||'nicht erfasst');
+    const doc=document.createElement('span');doc.className='tag quality-documentation';doc.textContent='Dokumentation: '+(window.GOAT_DE.value('Documentation',row.Documentation)||'nicht erfasst');tags.append(doc)}
    info.append(makeQualityGuide());
+   if(row){const original=document.createElement('details');original.className='historical-original-values';const summary=document.createElement('summary');summary.textContent='Historische Originalwerte';original.append(summary);const dl=document.createElement('dl');
+    for(const key of ['Placement','Competitive Evidence','Documentation','Decklist Coverage']){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=window.GOAT_DE.label(key);dd.textContent=row[key]===null||row[key]===undefined||row[key]===''?'Nicht erfasst':String(row[key]);dl.append(dt,dd)}original.append(dl);info.querySelector('.quality-guide').append(original);
+   }
   }
   for(const el of document.querySelectorAll('#content dt,#content th'))if(fieldNames[el.textContent])el.textContent=fieldNames[el.textContent];
   const table=document.querySelector('#deck-table');

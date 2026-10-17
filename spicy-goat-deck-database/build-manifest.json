@@ -16,12 +16,12 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "app.js": {
-      "size": 9513,
-      "sha256": "b986b1111d84534a1634f57d3af5a877e7fd0a1bb169aa1220b4461c1fda2e2d"
+      "size": 9642,
+      "sha256": "183932a59b08bb0a91d5258043433019febc17887c3df8ea6889bb2d8a9b9faf"
     },
     "browse.js": {
-      "size": 9838,
-      "sha256": "c98c1a4ed9156d4b952e2068af2b4ebb53feed5f37bf062526a42eda14b5dc4c"
+      "size": 9980,
+      "sha256": "4a3209057c0c4246dffa4fbafc6e160668b4c0518da551442e906c8bea5b6256"
     },
     "catalog.js": {
       "size": 290079,
@@ -116,12 +116,16 @@
       "sha256": "7e4bf86931641ff7fcd151ac1c6e81549227f7204fece3d77c109452a7c056d1"
     },
     "index.html": {
-      "size": 7644,
-      "sha256": "717c74353e38a595b86e67f35c8d582fbdf78bcdc9bb98614d8491def2337fdf"
+      "size": 7740,
+      "sha256": "676fb7ddfe5f5758f08332f959d607c9c370cd76a93109ddf4ddf0c5834a42b8"
     },
     "layout.js": {
       "size": 883,
       "sha256": "75016902639aec8dffd38488fd50a82d6c8db881ae44fea61a8de6936bdb3ff1"
+    },
+    "locale-de.js": {
+      "size": 5969,
+      "sha256": "3ecec17bfb8ff0d39e9a566d17dba67eb82520ee1216af652b87e2004dc77efc"
     },
     "personal.js": {
       "size": 5939,
@@ -132,16 +136,16 @@
       "sha256": "3246bae076f38e86f675e01973b4c608461ffb1ccb10621f205df9c568ef5113"
     },
     "phase7.js": {
-      "size": 26654,
-      "sha256": "4140ebc54e4fe34f03904c5d34467b5ae911948a4a9798db6a20b1a959dcbeaf"
+      "size": 27548,
+      "sha256": "77756de0f151ad879ab6598e5c4ece4509eb3d6f8679c20d3e48b206a485cde5"
     },
     "public-approval-manifest.json": {
       "size": 2722,
       "sha256": "841e3818ac67743eff3c52bddc6848ad37eccdd1b568cefd4f55458c60fda6e9"
     },
     "research.js": {
-      "size": 10305,
-      "sha256": "f385075831eeda70f08f64c8170860ce65dd3013e5df9ac9383f4e211e825be0"
+      "size": 10390,
+      "sha256": "2dd27b7e5ed8c2d0d6352717def7f710bd39fc0c24d88979060e2c73ae4d1e88"
     },
     "review-usability.js": {
       "size": 2379,
