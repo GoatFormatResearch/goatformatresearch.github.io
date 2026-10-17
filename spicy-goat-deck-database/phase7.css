@@ -209,3 +209,10 @@ dialog .dialog-head :is(#close,#close-image):active{background:var(--surface);co
 #lightbox #image-view-state,#lightbox #image-dimensions{flex:none;font-size:12px;line-height:1.4;margin:0;padding:6px 12px;overflow-wrap:anywhere}
 #lightbox #image-view-state{color:var(--muted);border-bottom:1px solid var(--line)}
 #lightbox #original-image-download{flex:none;margin:0;padding:12px;min-height:44px;box-sizing:border-box}
+
+/* Overview previews keep the full image provenance inside the deck dialog. */
+.screenshot-media--preview{margin:0;min-width:0;max-width:100%}
+.screenshot-media--preview>.deck-thumb{display:block;width:100%;object-fit:contain}
+.screenshot-preview-caption{display:flex;align-items:center;justify-content:space-between;gap:4px 12px;flex-wrap:wrap;font-size:12px;line-height:1.4}
+.screenshot-preview-caption>p{margin:0;font-size:inherit}
+.screenshot-preview-caption>a{display:inline-flex;align-items:center;min-height:44px;font-size:inherit;flex-shrink:0}

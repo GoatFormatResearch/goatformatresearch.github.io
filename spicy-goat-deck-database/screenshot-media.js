@@ -15,9 +15,14 @@
     const caption=document.createElement('p');caption.className='muted';caption.textContent=`${row.anonymized?'Anonymisierter':'Archivierter'} Screenshot-Ersatz${row.anonymized?' · Personen abgedeckt; keine Karten rekonstruiert':''}`;
     img.addEventListener('error',()=>{window.GOAT_IMAGE_DETAILS?.clear(box,caption);caption.textContent='Screenshot-Ersatz derzeit nicht verfügbar. Bitte die Quelle öffnen.';img.remove()});
     if(detail){const button=document.createElement('button');button.type='button';button.dataset.image=img.src;button.dataset.anonymized=String(row.anonymized===true);button.setAttribute('aria-label','Screenshot-Ersatz vergrößern');button.append(img);box.append(button)}else{img.dataset.deck=row.build_id;box.append(img)}
-    const link=document.createElement('a');link.href=row.source_url;link.textContent='Quelle der archivierten Deckabbildung';link.target='_blank';link.rel='noopener noreferrer';box.append(caption,link);
+    const link=document.createElement('a');link.href=row.source_url;link.textContent='Quelle der archivierten Deckabbildung';link.target='_blank';link.rel='noopener noreferrer';if(detail){box.append(caption,link)}else{
+      box.classList.add('screenshot-media--preview');
+      caption.textContent=row.anonymized?'Screenshot · anonymisiert':'Screenshot-Ersatz';
+      link.textContent='Quelle';link.setAttribute('aria-label','Quelle der archivierten Deckabbildung '+row.build_id);
+      const summary=document.createElement('figcaption');summary.className='screenshot-preview-caption';summary.append(caption,link);box.append(summary);
+    }
     const technical=document.createElement('p');technical.className='muted';technical.textContent='Technische Angaben aus dem geprüften Website-Export.';
-    window.GOAT_IMAGE_DETAILS?.show(box,technical,[['Bildmaße (Export)',`${row.dimensions[0]} × ${row.dimensions[1]} Pixel`],['Dateityp','image/jpeg'],['SHA-256 (erwartet)',row.sha256]]);
+    if(detail)window.GOAT_IMAGE_DETAILS?.show(box,technical,[['Bildmaße (Export)',`${row.dimensions[0]} × ${row.dimensions[1]} Pixel`],['Dateityp','image/jpeg'],['SHA-256 (erwartet)',row.sha256]]);
     return box;
   }
   document.addEventListener('click',event=>{const b=event.target.closest('[data-image]');if(!b)return;const download=document.querySelector('#original-image-download');if(download)download.textContent=b.dataset.anonymized==='true'?'Anonymisierten Screenshot speichern':'Angezeigtes Bild speichern';});
