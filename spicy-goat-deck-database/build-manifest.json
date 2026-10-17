@@ -9,7 +9,7 @@
     "external_source_links": 5,
     "screenshot_images": 9
   },
-  "catalog_sha256": "4716dbf4916efc0915a0fd665ea9537617eb49c9478a796582ea143767dd9894",
+  "catalog_sha256": "add3c426835ab10bd44a3ee6c11ec1c9211b18f8aade818ef8888784406f629d",
   "files": {
     ".nojekyll": {
       "size": 0,
@@ -24,12 +24,12 @@
       "sha256": "c98c1a4ed9156d4b952e2068af2b4ebb53feed5f37bf062526a42eda14b5dc4c"
     },
     "catalog.js": {
-      "size": 279598,
-      "sha256": "316f5552b61a2abec548a70e2cee957e37fa832a6543da0adcc3bab62a593b55"
+      "size": 289948,
+      "sha256": "7d7b593044926b6ea09a0e91492e3e516f31800b5490e27c0c2afb78caca4a5c"
     },
     "catalog.json": {
-      "size": 279575,
-      "sha256": "4716dbf4916efc0915a0fd665ea9537617eb49c9478a796582ea143767dd9894"
+      "size": 289925,
+      "sha256": "add3c426835ab10bd44a3ee6c11ec1c9211b18f8aade818ef8888784406f629d"
     },
     "compare-tools.js": {
       "size": 2996,
@@ -44,8 +44,8 @@
       "sha256": "006bfdcb436abfea87c0fdcd233742b87937b4a30b80a8284b52ca2fa88581f3"
     },
     "deck-reference.js": {
-      "size": 55346,
-      "sha256": "740c19aff734ae311539204be25d10121e13a0c8f762285fff07c2de21e0b15c"
+      "size": 57168,
+      "sha256": "64118def132b1afc2ca17db9dfc4596444452a1c24dd858cd69ba842ec963698"
     },
     "deck-tabs.js": {
       "size": 3923,
@@ -109,7 +109,7 @@
     },
     "index.html": {
       "size": 7589,
-      "sha256": "ba515b45d7c5d2d767a7a24ee49b39715a936c8883cf19e4b1f88362414eb106"
+      "sha256": "651ea160a86ce06563a99d47b82d641172add2835983510167e15bebde357e53"
     },
     "layout.js": {
       "size": 883,
@@ -128,8 +128,8 @@
       "sha256": "4140ebc54e4fe34f03904c5d34467b5ae911948a4a9798db6a20b1a959dcbeaf"
     },
     "public-approval-manifest.json": {
-      "size": 2639,
-      "sha256": "fd3e42b1d583e7019e59a9e97ff575649f616c115519005fa7e91dbee35f8c26"
+      "size": 2722,
+      "sha256": "35be6513e2a6b9c6ab0f5d5884ee63ac32196a490434829efbd56dc1df1565c3"
     },
     "research.js": {
       "size": 10305,
