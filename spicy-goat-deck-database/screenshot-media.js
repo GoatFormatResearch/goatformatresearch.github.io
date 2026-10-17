@@ -15,10 +15,11 @@
     const caption=document.createElement('p');caption.className='muted';caption.textContent=`${row.anonymized?'Anonymisierter':'Archivierter'} Screenshot-Ersatz${row.anonymized?' · Personen abgedeckt; keine Karten rekonstruiert':''}`;
     img.addEventListener('error',()=>{window.GOAT_IMAGE_DETAILS?.clear(box,caption);caption.textContent='Screenshot-Ersatz derzeit nicht verfügbar. Bitte die Quelle öffnen.';img.remove()});
     if(detail){const button=document.createElement('button');button.type='button';button.dataset.image=img.src;button.dataset.anonymized=String(row.anonymized===true);button.setAttribute('aria-label','Screenshot-Ersatz vergrößern');button.append(img);box.append(button)}else{img.dataset.deck=row.build_id;box.append(img)}
-    const link=document.createElement('a');link.href=row.source_url;link.textContent='Quelle der archivierten Deckabbildung';link.target='_blank';link.rel='noopener noreferrer';if(detail){box.append(caption,link)}else{
+    if(detail&&row.provenance_note)caption.textContent+=' · '+row.provenance_note;
+    const link=document.createElement('a');link.href=row.source_url;link.textContent=row.source_label||'Quelle der archivierten Deckabbildung';link.target='_blank';link.rel='noopener noreferrer';if(detail){box.append(caption,link)}else{
       box.classList.add('screenshot-media--preview');
       caption.textContent=row.anonymized?'Screenshot · anonymisiert':'Screenshot-Ersatz';
-      link.textContent='Quelle';link.setAttribute('aria-label','Quelle der archivierten Deckabbildung '+row.build_id);
+      link.textContent='Quelle';link.setAttribute('aria-label',(row.source_label||'Quelle der archivierten Deckabbildung')+' '+row.build_id);
       const summary=document.createElement('figcaption');summary.className='screenshot-preview-caption';summary.append(caption,link);box.append(summary);
     }
     const technical=document.createElement('p');technical.className='muted';technical.textContent='Technische Angaben aus dem geprüften Website-Export.';
