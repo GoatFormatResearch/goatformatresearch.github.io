@@ -198,7 +198,7 @@
 
  const review=window.GOAT_PUBLICATION_REVIEW||{};
  if(config.private_preview){
-  const featured=document.createElement('section');featured.className='phase8-featured';featured.innerHTML='<h2>Eine kuratierte Reise durch GOAT.</h2><p>24 echte Builds aus dem unveränderten Master. Vollständige Listen und offene Bildtranskriptionen bleiben unterscheidbar. Die Reihenfolge ist eine redaktionelle Auswahl, kein neues Spice-Ranking.</p><div class="phase8-picks"></div>';
+  const featured=document.createElement('section');featured.className='phase8-featured';featured.innerHTML='<h2>Eine kuratierte Reise durch GOAT.</h2><p>'+records.length+' echte Builds aus dem unveränderten Master. Vollständige Listen und offene Bildtranskriptionen bleiben unterscheidbar. Die Reihenfolge ist eine redaktionelle Auswahl, kein neues Spice-Ranking.</p><div class="phase8-picks"></div>';
   for(const row of records.slice(0,6)){const card=document.createElement('article');card.className='panel';const title=document.createElement('h3');title.textContent=row['Deck / Build'];const info=document.createElement('p');info.textContent=review[row['Build ID']]?.selection_reason||'';const b=document.createElement('button');b.dataset.deck=row['Build ID'];b.textContent='Deckprofil öffnen';card.append(title,info,b);featured.querySelector('.phase8-picks').append(card)}
   landing.append(featured);
   const families=document.createElement('p');families.className='phase8-families';
