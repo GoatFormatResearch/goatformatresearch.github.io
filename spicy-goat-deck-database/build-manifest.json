@@ -71,6 +71,10 @@
       "size": 781,
       "sha256": "d528afbafece9f40c1954c8e919f9636a24395912c3a73924972d793fa9bc990"
     },
+    "image-gallery.js": {
+      "size": 3570,
+      "sha256": "1fd5812cb6d490f812918c9123976110fb7bfe4a8c48357bb5643e4a7908817c"
+    },
     "images/screenshots/BLD-109-348b83974ea8256c7c505089173d4607b8f60a43b032514ba6dfab0c121aa006.jpg": {
       "size": 1069670,
       "sha256": "a690dbf9ccbb5052251baa9b205c0c67da1f8c7ee323b72c9e45b9f76ef60c61"
@@ -112,8 +116,8 @@
       "sha256": "7e4bf86931641ff7fcd151ac1c6e81549227f7204fece3d77c109452a7c056d1"
     },
     "index.html": {
-      "size": 7589,
-      "sha256": "05b5dd34c9f55c6b2bf1df72f68395346234fa350b98ded6f82f5a3da98c4b16"
+      "size": 7644,
+      "sha256": "717c74353e38a595b86e67f35c8d582fbdf78bcdc9bb98614d8491def2337fdf"
     },
     "layout.js": {
       "size": 883,
