@@ -33,7 +33,7 @@
     "BLD-116": "13f0599081ef914b17fefa33e845efc4d6db7ea1f922c1e89a36b3d124cbb0de"
   },
   "ledger_sha256": "f49eb0542b67a7d016da68c1f1e526e413fb8e9eee3bd6a0f2b1971645897b9b",
-  "catalog_sha256": "90f27d27a27fb06cf4c67e83b490c76f3243e77f5e5057460f383614eb01b650",
+  "catalog_sha256": "e0712bb826beba32e926ade061c34c20a0047764d361eab23da6e065d116c0d6",
   "public_approved": true,
   "editorial_policy_sha256": "48ea5200449461d91fffb305c55f1ed6aeca77c209f50c5f42f77d2768fa6ec2",
   "editorial_authorization_sha256": "0a8c3bb494e0d6fdb8f43a746e9bcf6c6da3e715a43ef46e81b741f40146a24c",
@@ -44,6 +44,15 @@
     "policy_sha256": "9accd976659b4a05b1d0fc4b06f47a1635329d07a89ffee1baf65036373caa2a",
     "authorization_sha256": "893742b8ed53b48e337e60256f836ee518623e1de4d31021a68cd36627d6be95",
     "scope": "PUBLIC_CORRECTION_ONLY_CANONICAL_UNCHANGED"
+  },
+  "r2_side_review": {
+    "scope_ids": [
+      "BLD-001",
+      "BLD-006",
+      "BLD-007"
+    ],
+    "policy_sha256": "57d336ae79421d5a13ceb223b49d5a9cfba9de54359d8889444445835961ff09",
+    "authorization_sha256": "c9cdc52dff30cfc8cd008c97243bc8593c7207d88306f7c5b6e07cfe4bd3f83f"
   },
   "exported_profiles": {
     "BLD-111": "77082702d9c0c1a8c92de558fd379c0226a7e1f222bd22ef9a1a9660dc0c6d43",
@@ -62,13 +71,13 @@
     "BLD-121": "23fc1ac8474871aebfd4ad9a86e002020a1594e8e8b45376aad8a4a0770dd3bd",
     "BLD-129": "1cc403d0d97a6662cc98c71b8c8f0b955ba6835a9a87cabe873a532a75999bc6",
     "BLD-132": "23d494ac4d07c035ea8802cf3ccc91a68bad153bb592ac25cea525b4224dcf7a",
-    "BLD-001": "4c798c3b31761fa281ed9a3eb98360e847e5cd777173d72a64d007be2345d281",
+    "BLD-001": "d1d7b34af7b6d6bb3362d7eacbef2dc1d8db8277fd1c60a5de6bdbb121038478",
     "BLD-017": "2bbe07addc0dc7281b5fe9635e5c674bc415c8d78db76cf2f667ce69bb88190a",
     "BLD-102": "c4a943e88127950745211db3557271c4d65840773c788a0baad323ad8f212aff",
-    "BLD-006": "bb35882194d0e7c724fe65e9ee6f23a1f5401c3280f88571ef17692f51fbdb1a",
+    "BLD-006": "6110381a932b81cfbf2bf384af987dc0b2ae2c6bbf786a3f50a1f889c6e9f415",
     "BLD-095": "9c779e5625b461c91d88cb12cd6d639b3c77796a822106369a79c8a2d039788f",
     "BLD-018": "bd1212510870989ac04098a9e61ffb2a9ca3326e81cae41aa4175aae1322150c",
-    "BLD-007": "f7d3188ba8db8d57d9f2c581ef0c5d9233bb88ac0f29333f45086636dbed4fac",
+    "BLD-007": "750ce59a61c1d4a4ab29d75eef66f53845eb7042b61c19153e893b6266943516",
     "BLD-011": "500dee0f5860f3cf1feb547ce0966c9ff9080fe99a21553337d3973e300ad8d3",
     "BLD-130": "b63dec6cfe2a4fef4ee8635bc9ebabcf51a42478d01b06dc5ebd77522af27694",
     "BLD-133": "8c9305c267288b56c04b8b9f069e18f6c46dc961e28d20ea9d90b0b577b9a18a",
