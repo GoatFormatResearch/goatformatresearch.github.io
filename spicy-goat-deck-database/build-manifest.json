@@ -9,7 +9,7 @@
     "external_source_links": 5,
     "screenshot_images": 11
   },
-  "catalog_sha256": "cf73a85b93e737e61397fe83a2c6d9e73a93cf0c07867c893aa9f9a56b5f210b",
+  "catalog_sha256": "90f27d27a27fb06cf4c67e83b490c76f3243e77f5e5057460f383614eb01b650",
   "files": {
     ".nojekyll": {
       "size": 0,
@@ -24,12 +24,12 @@
       "sha256": "4a3209057c0c4246dffa4fbafc6e160668b4c0518da551442e906c8bea5b6256"
     },
     "catalog.js": {
-      "size": 376276,
-      "sha256": "283956783b53919d0f64d175958c23b8a203da78e357b4825e8782bd1b120e2a"
+      "size": 376805,
+      "sha256": "9bc2ab95d1745d5e0139377237736a0e59eb7e74c302660160eb4dc1c27b9a10"
     },
     "catalog.json": {
-      "size": 376253,
-      "sha256": "cf73a85b93e737e61397fe83a2c6d9e73a93cf0c07867c893aa9f9a56b5f210b"
+      "size": 376782,
+      "sha256": "90f27d27a27fb06cf4c67e83b490c76f3243e77f5e5057460f383614eb01b650"
     },
     "compare-tools.js": {
       "size": 2996,
@@ -44,8 +44,8 @@
       "sha256": "7fcabdddf0ffd57124f0493fc77f40b0f340b1bf9e92845d71817f9fc91395fd"
     },
     "deck-reference.js": {
-      "size": 72644,
-      "sha256": "1f7b86a113d1a2ddcd38ebc3cc023f122a60e7992c11a08421ba9acb9ef11d56"
+      "size": 72596,
+      "sha256": "12c6313e03b84ef7ee9ec39a485a5b4d5abee63dde8b6b07901890e5d4302ec5"
     },
     "deck-tabs.js": {
       "size": 3923,
@@ -125,7 +125,7 @@
     },
     "index.html": {
       "size": 7755,
-      "sha256": "f20a7b86df5edd3fe56013481680f324efafe9e658fff0fa59a969d12c2b8664"
+      "sha256": "73935dfb9d6f912504b2b0788c4648da8ef4967a9add4efa5f497749b192d878"
     },
     "layout.js": {
       "size": 883,
@@ -136,8 +136,8 @@
       "sha256": "3ecec17bfb8ff0d39e9a566d17dba67eb82520ee1216af652b87e2004dc77efc"
     },
     "main-deck-review.json": {
-      "size": 6336,
-      "sha256": "f5ff2d66f23eb45f992e16a0c44e1d332441a7aff9b25dae55191f54e88fd50c"
+      "size": 7384,
+      "sha256": "d99915edb73e4d6ff48198dd5f31066b512373fc54c37105094702fa1de0581d"
     },
     "personal.js": {
       "size": 5939,
@@ -152,8 +152,8 @@
       "sha256": "77756de0f151ad879ab6598e5c4ece4509eb3d6f8679c20d3e48b206a485cde5"
     },
     "public-approval-manifest.json": {
-      "size": 5716,
-      "sha256": "5bb666aae005e807e00169af28e7ed3bbb1c08cb651303e689af78e459243292"
+      "size": 6006,
+      "sha256": "553774cb0d792aa051d64c0417807d061bee719a0f0b9abe8569adc24e7c75c0"
     },
     "research.js": {
       "size": 10390,
