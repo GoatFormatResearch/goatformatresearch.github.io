@@ -9,7 +9,7 @@
     "external_source_links": 5,
     "screenshot_images": 11
   },
-  "catalog_sha256": "939411d7dfb51e9861b67b14600446fc4339fcfae0ce983db9ec10ab2c59f7af",
+  "catalog_sha256": "2636465cb3bc91f8456e319fc7147a2cd41c8d6720d6ba0ba63f7902ad2bea20",
   "files": {
     ".nojekyll": {
       "size": 0,
@@ -24,12 +24,12 @@
       "sha256": "4a3209057c0c4246dffa4fbafc6e160668b4c0518da551442e906c8bea5b6256"
     },
     "catalog.js": {
-      "size": 303730,
-      "sha256": "4e1183e73f7cfd2aecfc5aac2477fde3e7df96cfb6f2405d4c9b11b76684b83f"
+      "size": 320852,
+      "sha256": "1bd6c69d1f39c7784d24b4067e7e93fe1a99752d8fff48e8c198dc4e2bb927c7"
     },
     "catalog.json": {
-      "size": 303707,
-      "sha256": "939411d7dfb51e9861b67b14600446fc4339fcfae0ce983db9ec10ab2c59f7af"
+      "size": 320829,
+      "sha256": "2636465cb3bc91f8456e319fc7147a2cd41c8d6720d6ba0ba63f7902ad2bea20"
     },
     "compare-tools.js": {
       "size": 2996,
@@ -40,8 +40,8 @@
       "sha256": "e099ac0f15f65662b1d68394b4c67dccb58c53b10ed9b1c605fd048136159b67"
     },
     "deck-list.js": {
-      "size": 8840,
-      "sha256": "006bfdcb436abfea87c0fdcd233742b87937b4a30b80a8284b52ca2fa88581f3"
+      "size": 9262,
+      "sha256": "7fcabdddf0ffd57124f0493fc77f40b0f340b1bf9e92845d71817f9fc91395fd"
     },
     "deck-reference.js": {
       "size": 59269,
@@ -50,6 +50,10 @@
     "deck-tabs.js": {
       "size": 3923,
       "sha256": "156dd970bec6f88822d1f7d29a9a077c455bdc9310668537e000ea3eb9b55e64"
+    },
+    "editorial-review.json": {
+      "size": 11428,
+      "sha256": "174fea0e312fd923f42c848f70bd43369a181e1d34e03029fd9c33937e760aec"
     },
     "explore.js": {
       "size": 4841,
@@ -121,7 +125,7 @@
     },
     "index.html": {
       "size": 7755,
-      "sha256": "473be3c98d4e60bb4a5558466f2859d7a53acf6312690c48b03ff9f1cc931093"
+      "sha256": "32215966a578574da4ecd4edd044d96f0ee497f6d04f798713062071d86eb73b"
     },
     "layout.js": {
       "size": 883,
@@ -144,8 +148,8 @@
       "sha256": "77756de0f151ad879ab6598e5c4ece4509eb3d6f8679c20d3e48b206a485cde5"
     },
     "public-approval-manifest.json": {
-      "size": 2805,
-      "sha256": "c04a0c913a48904b888c36ddb6e7c58d9845ea690899dd25005feb04345e02f3"
+      "size": 5525,
+      "sha256": "c3fc39ffaca7182dc139d000418cff813b3a80419e71b178a3f9d065f1a289c8"
     },
     "research.js": {
       "size": 10390,

@@ -39,6 +39,7 @@
    if(part==='Side'&&included.Side)for(const [id,n] of copies.Side)if(n+(copies.Main.get(id)||0)>3)included.Side=false;
    if(!included[part])warnings.push((part==='Side'?'Side Deck':'Extra/Fusion Deck')+' unvollständig oder ungeklärt: wird nicht exportiert.');
   }
+  if(rows.filter(c=>c['Card / Entry']==='Night Assailant'&&/^Main(?:$| [–-])|^Side$/.test(String(c.Section))).reduce((sum,c)=>sum+(Number.isInteger(c.Count)?c.Count:0),0)>2)warnings.push('Mengen-/Legalitätskonflikt: mehr als zwei Night Assailant in der historischen Main-/Side-Transkription. GOAT erlaubt höchstens zwei; Originalbeleg erneut prüfen. Exportfähigkeit bestätigt hier nur die Main-Vollständigkeit.');
   const exportTotals={Main:included.Main?totals.Main:0,Side:included.Side?totals.Side:0,Extra:included.Extra?totals.Extra:0};
   return {sections,totals,exportTotals,included,warnings,errors:[...new Set(errors)],eligible:errors.length===0,plan,buildId:deck['Build ID']};
  }
