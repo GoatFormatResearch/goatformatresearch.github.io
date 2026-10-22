@@ -9,7 +9,7 @@
     "external_source_links": 5,
     "screenshot_images": 10
   },
-  "catalog_sha256": "9b905e4cd77245f0ad10638b8058aef814d5b9d2711845ff58dacef1bc954660",
+  "catalog_sha256": "a6b04c3b5c73e47c546829ad91b20816dc8b9b6e0eb9298a2af3333d03c06245",
   "files": {
     ".nojekyll": {
       "size": 0,
@@ -24,12 +24,12 @@
       "sha256": "4a3209057c0c4246dffa4fbafc6e160668b4c0518da551442e906c8bea5b6256"
     },
     "catalog.js": {
-      "size": 290079,
-      "sha256": "34180c2964688bdae251fad5d3c03e63e9713cf3cf6c5aade4fa307c9c4344eb"
+      "size": 303762,
+      "sha256": "dd8d94116f2e3e9c34d23feecf31447592d54844ebf0cf89b59af16199e7e65c"
     },
     "catalog.json": {
-      "size": 290056,
-      "sha256": "9b905e4cd77245f0ad10638b8058aef814d5b9d2711845ff58dacef1bc954660"
+      "size": 303739,
+      "sha256": "a6b04c3b5c73e47c546829ad91b20816dc8b9b6e0eb9298a2af3333d03c06245"
     },
     "compare-tools.js": {
       "size": 2996,
@@ -44,8 +44,8 @@
       "sha256": "006bfdcb436abfea87c0fdcd233742b87937b4a30b80a8284b52ca2fa88581f3"
     },
     "deck-reference.js": {
-      "size": 57168,
-      "sha256": "64118def132b1afc2ca17db9dfc4596444452a1c24dd858cd69ba842ec963698"
+      "size": 59269,
+      "sha256": "43a987c87e6120a69edc211cf8daa388ec1dd1b355f5273802ac4d67fcf4961a"
     },
     "deck-tabs.js": {
       "size": 3923,
@@ -116,8 +116,8 @@
       "sha256": "7e4bf86931641ff7fcd151ac1c6e81549227f7204fece3d77c109452a7c056d1"
     },
     "index.html": {
-      "size": 7740,
-      "sha256": "676fb7ddfe5f5758f08332f959d607c9c370cd76a93109ddf4ddf0c5834a42b8"
+      "size": 7755,
+      "sha256": "a4708ee2ce0106fff57760a451af50319c4fcfc8a3130b27930249b6cc7da8a3"
     },
     "layout.js": {
       "size": 883,
@@ -140,8 +140,8 @@
       "sha256": "77756de0f151ad879ab6598e5c4ece4509eb3d6f8679c20d3e48b206a485cde5"
     },
     "public-approval-manifest.json": {
-      "size": 2722,
-      "sha256": "841e3818ac67743eff3c52bddc6848ad37eccdd1b568cefd4f55458c60fda6e9"
+      "size": 2805,
+      "sha256": "014e8f3ab22ef7eb14f9bd231f3668aea27dfc1a905513b162958c61d5441827"
     },
     "research.js": {
       "size": 10390,
